@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analiz & Özetleme Paneli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar (Yan Menü) -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <span class="logo-icon">🧠</span>
+                <div class="logo-texts">
+                    <h2>AI Analiz</h2>
+                    <span class="logo-subtitle">Profesyonel Panel</span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active" data-target="dashboard">
+                    <span class="icon">📊</span> Dashboard
+                </li>
+                <li class="nav-item" data-target="text-analysis">
+                    <span class="icon">📄</span> Metin & PDF Girişi
+                </li>
+                <li class="nav-item" data-target="ai-summary">
+                    <span class="icon">✨</span> Özet Modülü
+                </li>
+                <li class="nav-item" data-target="data-analytics">
+                    <span class="icon">📈</span> Veri ve Karakter Analizi
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <span>⚡ v2.0 Pro Sistem</span>
+            </div>
+        </aside>
+
+        <!-- Main Content (Ana İçerik Alanı) -->
+        <main class="main-content">
+            <header>
+                <div>
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p id="pageDesc">Yapay zeka tabanlı akıllı analiz ve raporlama sistemine hoş geldiniz.</p>
+                </div>
+                <div class="header-badge">
+                    <span>🟢 Sistem Aktif</span>
+                </div>
+            </header>
+
+            <!-- 1. DASHBOARD / GİRİŞ EKRANI -->
+            <div id="section-dashboard" class="content-section active">
+                <div class="welcome-card">
+                    <h3>🚀 Hızlı Başlangıç</h3>
+                    <p>Sol menüden <strong>"Metin & PDF Girişi"</strong> sekmesini seçerek dilediğiniz veriyi sisteme yükleyebilir, ardından özet ve analiz detaylarını inceleyebilirsiniz.</p>
+                </div>
+            </div>
+
+            <!-- 2. METİN & PDF ANALİZ EKRANI -->
+            <div id="section-text-analysis" class="content-section">
+                <div class="upload-section">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="paste-tab">✏️ Metin Yapıştır</button>
+                        <button class="tab-btn" data-tab="pdf-tab">📁 PDF Yükle</button>
+                    </div>
+
+                    <!-- Metin Sekmesi -->
+                    <div id="paste-tab" class="tab-content active">
+                        <label for="textInput" class="input-label">📝 Analiz Edilecek Metin:</label>
+                        <textarea id="textInput" rows="7" placeholder="Metninizi buraya yazın veya yapıştırın..."></textarea>
+                        <button id="analyzeTextBtn" class="btn-primary" style="margin-top: 15px;">✨ Metni Analiz Et</button>
+                    </div>
+
+                    <!-- PDF Sekmesi -->
+                    <div id="pdf-tab" class="tab-content" style="display: none;">
+                        <input type="file" id="pdfFileInput" accept=".pdf" style="display: none;">
+                        <div class="pdf-drop-zone" onclick="document.getElementById('pdfFileInput').click()">
+                            <span class="drop-icon">📂</span>
+                            <p>PDF dosyası seçmek için tıklayın</p>
+                            <span id="selectedFileName" class="file-name">Dosya seçilmedi</span>
+                        </div>
+                        <button id="analyzePdfBtn" class="btn-primary" style="margin-top: 15px;">🔍 PDF'i Analiz Et</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. ÖZET MODÜLÜ -->
+            <div id="section-ai-summary" class="content-section">
+                <div class="card full-width-card">
+                    <h3>✨ Detaylı Yapay Zeka Özeti</h3>
+                    <p id="summaryOnlyView">Henüz bir özet oluşturulmadı. Lütfen veri girişi yapıp analiz edin.</p>
+                </div>
+            </div>
+
+            <!-- 4. VERİ VE KARAKTER ANALİZİ -->
+            <div id="section-data-analytics" class="content-section">
+                <div class="analytics-grid">
+                    <div class="card-stats">
+                        <h3>📊 Toplam Karakter / Veri Sayısı</h3>
+                        <p id="analyticsCountDisplay" class="stat-number">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>ℹ️ Analiz Detay Bilgisi</h3>
+                        <p>Bu bölümde işlenen son verinin uzunluğu, kelime yoğunluğu ve istatistiksel verileri yer almaktadır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Durum Mesajı -->
+            <div id="statusMessage" class="status-message" style="margin-top: 20px;"></div>
+
+            <!-- Ortak Sonuç Alanı (Dashboard'da da görünür) -->
+            <section class="results-section" style="margin-top: 25px;">
+                <div class="card">
+                    <h3>📌 Oluşturulan Özet</h3>
+                    <p id="summaryResult">Henüz analiz yapılmadı. Metin girip veya PDF yükleyip analiz butonuna basın.</p>
+                </div>
+                <div class="card-stats">
+                    <h3>📊 Veri Boyutu</h3>
+                    <p id="dataCount" class="stat-number">0</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
